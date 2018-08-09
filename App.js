@@ -16,6 +16,25 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+// Post requests with a body always seem to fail
+fetch("https://api.github.com", {
+  method: 'POST',
+  body: '{}'      // Removing this body makes this succeed
+}).then(data => {
+  alert("SUCCESS: " + data)
+}).catch(error => {
+  alert("FAILED: " + error)
+})
+
+// GET requests always work
+
+// fetch("https://api.github.com").then(data => {
+//   alert("SUCCESS: " + data)
+// }).catch(error => {
+//   alert("FAILED: " + error)
+// })
+
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {
